@@ -146,18 +146,9 @@ def main():
 
 	selected = st.session_state.get('selected', None)
 
-	# 선택 상태 안내
+	# 선택 상태 안내 (선택이 없어도 초콜릿은 보이도록 함)
 	if selected is None:
 		st.info("숫자 버튼을 눌러서 초콜릿 묶임을 확인하세요. (선택 없음)")
-	else:
-		st.write(f"### 선택된 수: {selected}")
-		# 상태 텍스트
-		if selected == g:
-			st.success("이 수는 최대공약수 입니다! (초록)")
-		elif n1 % selected == 0 and n2 % selected == 0:
-			st.warning("이 수는 공약수입니다. (노랑)")
-		else:
-			st.error("이 수는 공약수가 아닙니다. (빨강)")
 
 	# 각 초콜릿 막대 이미지 생성 및 세로(위아래)로 표시
 	st.write("#### 초콜릿 시각화")
